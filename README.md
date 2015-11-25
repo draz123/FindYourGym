@@ -1,1 +1,1 @@
-# Wzorce
+#DESIGN PATTERNS
