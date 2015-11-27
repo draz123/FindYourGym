@@ -154,8 +154,6 @@ https://maps.googleapis.com/maps/api/place/autocomplete/json?input=krak&types=ge
   * `spa`
   * `physiotherapist`
 
-Too few - must rely on `keyword`/`name` parameters
-
 ## Response formats
 
   * `json` - recommended
@@ -172,6 +170,7 @@ Too few - must rely on `keyword`/`name` parameters
   * For this project we only need using the API without verification (1000 reqs / 24 hrs)
   * Nearby Search suits us best - Text Search is quite complex and Radar Search is for quickly finding "anything", not detailed info about the places we need
   * We don't need Place Autocomplete in the beginning
+  * There are too few tags - must rely on `keyword`/`name` parameters
   * Data we can get from the API:
     * name
     * vicinity (address)
