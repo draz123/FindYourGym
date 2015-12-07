@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:panel header="Message from bean">
+			<h:outputText value="#{initialBean.message}"/>
+		</p:panel>
+
+		<p:panel header="Cześć! Słyszałem, że chcesz być koksę?">
+			<h:outputText id="msgGetCity" value="Wpisz miasto: "/>
+				<h:inputText id="userCity" value="#{initialBean.userCity}"></h:inputText>
+				<br/>
+			<h:outputText id="msgHourFrom" value="Godziny otwarcia od: "/>
+				<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"></h:inputText>
+				<h:outputText value=" do "/>
+				<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"></h:inputText>
+				<br/>
+				
+			<h:commandButton value="Pokaz dane uzytkownika">
+				<f:ajax execute="userCity hoursFrom hoursTo" render="outputUserCity outputUserHourFrom outputUserHourTo"/>
+			</h:commandButton>
+			<h2>
+				<h:outputText id="outputUserCity" value="Wybrane miasto: #{initialBean.userCity}" />
+				<br/>
+				<h:outputText id="outputUserHourFrom" value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
+				<h:outputText id="outputUserHourTo" value=" do #{initialBean.hoursTo}" />
+			</h2>
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
