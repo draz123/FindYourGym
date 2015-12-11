@@ -16,7 +16,7 @@ class PlaceListRequester extends RequestHandler {
 	public PlaceListRequester(String _city, String _query) {
 		
 		super(_city, _query);
-		this.idList = new ArrayList<>();
+		this.idList = new ArrayList();
 	}
 	
 	public ArrayList<String> getIdList() {
