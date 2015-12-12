@@ -20,20 +20,32 @@
 			<h:outputText id="msgGetCity" value="Wpisz miasto: "/>
 				<h:inputText id="userCity" value="#{initialBean.userCity}"></h:inputText>
 				<br/>
+				
+			<h:outputText id="msgFind" value="Wyszukaj: "/>
+				<h:inputText id="query" value="#{initialBean.userQuery}"></h:inputText>
+				<br/>
+				
 			<h:outputText id="msgHourFrom" value="Godziny otwarcia od: "/>
 				<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"></h:inputText>
 				<h:outputText value=" do "/>
 				<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"></h:inputText>
 				<br/>
 				
+			<h:commandButton value="ODPAL RAKIETE" actionListener="#{initialBean.runUserQuery}">
+<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
+			</h:commandButton>	
+				
 			<h:commandButton value="Pokaz dane uzytkownika">
-				<f:ajax execute="userCity hoursFrom hoursTo" render="outputUserCity outputUserHourFrom outputUserHourTo"/>
+				<f:ajax type="Reset" execute="userCity hoursFrom hoursTo" render="outputUserCity outputUserHourFrom outputUserHourTo"/>
 			</h:commandButton>
 			<h2>
 				<h:outputText id="outputUserCity" value="Wybrane miasto: #{initialBean.userCity}" />
 				<br/>
 				<h:outputText id="outputUserHourFrom" value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
 				<h:outputText id="outputUserHourTo" value=" do #{initialBean.hoursTo}" />
+			</h2>
+			<h2>
+				<h:outputText id="outputUserQueryResult" value="wynik: #{initialBean.message}" />
 			</h2>
 		</p:panel>
 	</h:form>
