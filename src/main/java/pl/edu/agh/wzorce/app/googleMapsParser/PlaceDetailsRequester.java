@@ -37,6 +37,7 @@ class PlaceDetailsRequester extends RequestHandler {
 		
 		JSONObject result = jsonResponse.getJSONObject("result");
 		Day[] week = getWeeklyHours(result);
+		JSONObject locationResult = result.getJSONObject("geometry").getJSONObject("location");
 				
 		place = new Place(
 					getPlaceProperty("name", result),
@@ -44,7 +45,9 @@ class PlaceDetailsRequester extends RequestHandler {
 					getPlaceProperty("formatted_phone_number", result),
 					new WeeklyHours(week),
 					getPlaceProperty("rating", result),
-					getPlaceProperty("website", result)
+					getPlaceProperty("website", result),
+					getPlaceProperty("lng", locationResult),
+					getPlaceProperty("lat", locationResult)
 				);		
 	}
 
@@ -54,7 +57,7 @@ class PlaceDetailsRequester extends RequestHandler {
 		try {
 			result = json.get(propertyName).toString();
 		} catch (JSONException jE) {
-			result = "";
+			result = "lel";
 		}
 		
 		return result;

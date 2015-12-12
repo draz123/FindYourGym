@@ -65,14 +65,18 @@ class Place {
 	public WeeklyHours openingHours;
 	public String rating;
 	public String website;
+	public String longitude;
+	public String latitude;
 	
-	public Place(String name, String address, String phoneNumber, WeeklyHours openingHours, String rating, String website) {
-		this.name = name;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.openingHours = openingHours;
-		this.rating = rating;
-		this.website = website;		
+	public Place(String _name, String _address, String _phoneNumber, WeeklyHours _openingHours, String _rating, String _website, String _longitude, String _latitude) {
+		this.name = _name;
+		this.address = _address;
+		this.phoneNumber = _phoneNumber;
+		this.openingHours = _openingHours;
+		this.rating = _rating;
+		this.website = _website;	
+		this.longitude = _longitude;
+		this.latitude = _latitude;
 	}
 	
 	public String toString() {
@@ -81,7 +85,9 @@ class Place {
 				+ "Phone number: " + phoneNumber + "\n" 
 				+ "Opening hours:\n " + openingHours.toString() + "\n" 
 				+ "Rating: " + rating + "\n" 
-				+ "Website: " + website + "\n" ;
+				+ "Website: " + website + "\n" 
+				+ "Longitude: " + longitude + "\n"
+				+ "Latitude: " + latitude + "\n"; 
 	}
 	
 }
