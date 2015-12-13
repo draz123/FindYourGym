@@ -13,41 +13,74 @@
 
 	<h:form>
 		<p:panel header="Message from bean">
-			<h:outputText value="#{initialBean.message}"/>
+			<h:outputText value="#{initialBean.message}" />
 		</p:panel>
 
 		<p:panel header="Cześć! Słyszałem, że chcesz być koksę?">
-			<h:outputText id="msgGetCity" value="Wpisz miasto: "/>
-				<h:inputText id="userCity" value="#{initialBean.userCity}"></h:inputText>
-				<br/>
-				
-			<h:outputText id="msgFind" value="Wyszukaj: "/>
-				<h:inputText id="query" value="#{initialBean.userQuery}"></h:inputText>
-				<br/>
-				
-			<h:outputText id="msgHourFrom" value="Godziny otwarcia od: "/>
-				<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"></h:inputText>
-				<h:outputText value=" do "/>
-				<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"></h:inputText>
-				<br/>
-				
-			<h:commandButton value="ODPAL RAKIETE" actionListener="#{initialBean.runUserQuery}">
-<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
-			</h:commandButton>	
-				
+			<h:outputText id="msgGetCity" value="Wpisz miasto: " />
+			<h:inputText id="userCity" value="#{initialBean.userCity}"></h:inputText>
+			<br />
+
+			<h:outputText id="msgFind" value="Wyszukaj: " />
+			<h:inputText id="query" value="#{initialBean.userQuery}"></h:inputText>
+			<br />
+
+			<h:outputText id="msgHourFrom" value="Godziny otwarcia od: " />
+			<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"></h:inputText>
+			<h:outputText value=" do " />
+			<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"></h:inputText>
+			<br />
+			
+	<h:outputText id="checkIfTrue1" value="flaga: #{initialBean.listNotEmpty}"  />
+	
+			<h:commandButton value="ODPAL RAKIETE"
+				actionListener="#{initialBean.runUserQuery}">
+				<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
+			</h:commandButton>
+
 			<h:commandButton value="Pokaz dane uzytkownika">
-				<f:ajax type="Reset" execute="userCity hoursFrom hoursTo" render="outputUserCity outputUserHourFrom outputUserHourTo"/>
+				<f:ajax type="Reset" execute="userCity hoursFrom hoursTo"
+					render="outputUserCity outputUserHourFrom outputUserHourTo" />
 			</h:commandButton>
 			<h2>
-				<h:outputText id="outputUserCity" value="Wybrane miasto: #{initialBean.userCity}" />
-				<br/>
-				<h:outputText id="outputUserHourFrom" value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
-				<h:outputText id="outputUserHourTo" value=" do #{initialBean.hoursTo}" />
+				<h:outputText id="outputUserCity"
+					value="Wybrane miasto: #{initialBean.userCity}" />
+				<br />
+				<h:outputText id="outputUserHourFrom"
+					value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
+				<h:outputText id="outputUserHourTo"
+					value=" do #{initialBean.hoursTo}" />
 			</h2>
 			<h2>
-				<h:outputText id="outputUserQueryResult" value="wynik: #{initialBean.message}" />
+				<h:outputText id="outputUserQueryResult"
+					value="wynik: #{initialBean.message}" />
 			</h2>
 		</p:panel>
+
+		<!--  PROBY WYSWIETLANIA -->
+			<h:outputText id="checkIfTrue2" value="flaga: #{initialBean.listNotEmpty}"  />
+	 		
+	 		<p:panel header="Proby wyswietlania" rendered="#{(initialBean.listNotEmpty == true)}">
+			<p:carousel value="#{carouselView.placesList}" headerText="Custom"
+				var="place" itemStyle="height:200px;text-align:center"
+				numVisible="1" easing="easeOutBounce" style="width:250px"
+				cricular="true">
+				<h:panelGrid columns="2" style="width:100%"	columnClasses="label,value">
+					
+					<f:facet name="header">
+						<p:graphicImage name="resurces/images/hantel.jpg" />
+					</f:facet>
+
+					<h:outputText value="Id:" />
+					<h:outputText value="#{place.name}" />
+
+					<f:facet name="footer">
+						potato
+					</f:facet>
+				</h:panelGrid>
+			</p:carousel>
+		</p:panel>
+		<!-- KONIEC      PROBY WYSWIETLANIA -->
 	</h:form>
 
 </h:body>

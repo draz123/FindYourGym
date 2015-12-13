@@ -17,7 +17,7 @@ public class InitialBean implements Serializable {
 	private String userQuery;
 	private int hoursFrom;
 	private int hoursTo;
-	
+	private boolean listNotEmpty = false;
 	
 	public String getUserCity() {
 		return userCity;
@@ -50,13 +50,21 @@ public class InitialBean implements Serializable {
 		this.message = message;
 	}
 	
-	public String result() {
-		return "gowno";
-	}
+//	public String result() {
+//		return "gowno";
+//	}
 	public void runUserQuery(ActionEvent event) {
-		System.out.println(userCity + userQuery);
+		System.out.println(userCity +" "+ userQuery);
 		GoogleMapsParser tmp = new GoogleMapsParser(userCity, userQuery);
 		tmp.startParsing();
+		this.listNotEmpty = true;
+		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
+	}
+	public boolean isListNotEmpty() {
+		return listNotEmpty;
+	}
+	public void setListNotEmpty(boolean listNotEmpty) {
+		this.listNotEmpty = listNotEmpty;
 	}
 
 }

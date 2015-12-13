@@ -57,7 +57,7 @@ class WeeklyHours {
 }
 
 
-class Place {
+public class Place {
 	
 	public String name;
 	public String address;
