@@ -11,8 +11,8 @@ public class GoogleMapsParser {
 	public static boolean flag = false;
 	
 	public GoogleMapsParser(String _city, String _query) {
-		this.city = _city;
-		this.query = _query;
+		this.city = PolishLetterRemover.substitutePolishLettersWithNormal(_city);
+		this.query =PolishLetterRemover.substitutePolishLettersWithNormal(_query);
 	}
 	
 	public void startParsing() {
