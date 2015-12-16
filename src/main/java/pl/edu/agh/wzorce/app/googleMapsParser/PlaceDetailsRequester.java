@@ -7,14 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-class PlaceDetailsRequester extends RequestHandler {
+class PlaceDetailsRequester extends Builder {
 	
 	private String placeId = null;
 	private Place place = null;
 	
 	public PlaceDetailsRequester(String _city, String _query, String _placeId) {
-		
-		super(_city, _query);
+
 		this.placeId = _placeId;
 
 	}
@@ -22,8 +21,7 @@ class PlaceDetailsRequester extends RequestHandler {
 	public Place getPlaceDetails() {
 		
 		try {		
-			sendQuery( formURL() );
-			jsonProcessing();		
+			sendQuery();		
 				
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,13 +31,13 @@ class PlaceDetailsRequester extends RequestHandler {
 				
 	}
 	
-	protected void jsonProcessing() throws JSONException {
+	public void buildJSONProcesser() throws JSONException {
 		
 		JSONObject result = jsonResponse.getJSONObject("result");
 		Day[] week = getWeeklyHours(result);
 		JSONObject locationResult = result.getJSONObject("geometry").getJSONObject("location");
 				
-		place = new Place(
+		this.place = new Place(
 					getPlaceProperty("name", result),
 					getPlaceProperty("formatted_address", result),
 					getPlaceProperty("formatted_phone_number", result),
@@ -90,15 +88,15 @@ class PlaceDetailsRequester extends RequestHandler {
 		return week;
 	}
 
-	protected URL formURL() throws MalformedURLException {
+	public void buildURL() throws MalformedURLException {
 		
 		String params = "placeid=" + placeId
 						+ "&key=" + key;
 		
-		return new URL("https://maps.googleapis.com/maps/api/place/details/"
-				+ outputFormat
-				+ "?"
-				+ params);
+		this.url =  new URL("https://maps.googleapis.com/maps/api/place/details/"
+					+ outputFormat
+					+ "?"
+					+ params);
 	}	
 	
 	public Place getPlace() {

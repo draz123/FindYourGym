@@ -10,30 +10,21 @@ import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-abstract class RequestHandler {
+abstract class Builder {
 
-	protected String city = null;
-	protected String query = null;
-	protected String outputFormat = null;
+	protected String outputFormat = "json";
 	protected final String key = "AIzaSyBMSpHVfdCYlzZALEVkcanN-w1qY2CoLkU";
+	protected URL url =null;
 	protected JSONObject jsonResponse = null;
 	
-	protected RequestHandler(String _city, String _query) {
-		
-		this.city = _city;
-		this.query = _query;
-		this.outputFormat = "json";
-	}
+	abstract public void buildURL() throws MalformedURLException;
 	
-	abstract protected URL formURL() throws MalformedURLException;
+	abstract protected void buildJSONProcesser() throws JSONException;	
 	
-	abstract protected void jsonProcessing() throws JSONException;	
-	
-	protected void sendQuery(URL url) {
+	public void sendQuery() {
 
 		try {
-			
-			String response = this.getStringResponse(url);
+			String response = getStringResponse( this.url );
 			this.jsonResponse = new JSONObject(response);		
 			
 		} catch (Exception e) {

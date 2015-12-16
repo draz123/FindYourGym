@@ -16,15 +16,21 @@ public class GoogleMapsParser {
 	}
 	
 	public void startParsing() {
-		PlaceListRequester plr = new PlaceListRequester(city, query);
-		ArrayList<String> placeIdList = plr.getIdList();			
+
+		Director dir = new Director();
+		dir.setBuilder( new PlaceListRequester(city, query) );
+		dir.build();
+		ArrayList<String> placeIdList = (ArrayList<String>)(dir.getResult());
 		
-//		for (String s: placeIdList) 
-//			System.out.println(s);
+		for ( int i=0; i<20; i++) {
 		
-		for (int i=0; i<20;i++) {
-			PlaceDetailsRequester pdr = new PlaceDetailsRequester(city, query, placeIdList.get(i) );
-			Place currentPlace = pdr.getPlaceDetails();
+			dir.setBuilder( 
+					new PlaceDetailsRequester(
+							city, query, placeIdList.get(i) 
+							) 
+					);
+			dir.build();
+			Place currentPlace = (Place)dir.getResult();
 			placeList = new ArrayList<Place>();
 			placeList.add(currentPlace);
 			System.out.println(currentPlace.toString()+"\n\n");
