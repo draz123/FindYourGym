@@ -30,14 +30,12 @@ public class Director {
 	}
 
 	public void build() {
-		
+					
 		try {
-			
 			builder.buildURL();
-			
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}			
 		
 		builder.sendQuery();
 		

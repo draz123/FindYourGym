@@ -23,16 +23,8 @@ class PlaceDetailsRequester extends Builder {
 	}
 	
 	public Place getPlaceDetails() {
-		
-		try {		
-			sendQuery();		
-				
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return place;
-				
+		sendQuery();		
+		return place;				
 	}
 	
 	public void buildJSONProcesser() throws JSONException {
@@ -59,7 +51,7 @@ class PlaceDetailsRequester extends Builder {
 		try {
 			result = json.get(propertyName).toString();
 		} catch (JSONException jE) {
-			result = "lel";
+			result = "";
 		}
 		
 		return result;

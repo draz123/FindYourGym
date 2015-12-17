@@ -13,20 +13,22 @@ class PlaceListRequester extends Builder {
 	protected String query = null;
 	private ArrayList<String> idList = null;
 	// TO-DO - next/previous page jumping
-	//private String nextPageId = null;
+	private String nextPageToken = null;
+	private int pageNumber;
 	
-	public PlaceListRequester(String _city, String _query) {
+	public PlaceListRequester(String _city, String _query, int _pageNumber) {
 		
 		this.city = _city;
 		this.query = _query;
 		this.idList = new ArrayList<String>();
 		this.outputFormat = "json";
+		this.pageNumber = _pageNumber;
 	}
 	
 	public void buildJSONProcesser() throws JSONException {
 		
 		JSONArray jsonResults = jsonResponse.getJSONArray("results");
-		//nextPageId = (String)jsonResponse.get("next_page_token");
+		nextPageToken = (String)jsonResponse.get("next_page_token");
 		
 		for (int i=0; i<jsonResults.length(); i++) {
 			String singleResult = (String)jsonResults.getJSONObject(i).get("place_id");
@@ -37,8 +39,16 @@ class PlaceListRequester extends Builder {
 	public void buildURL() throws MalformedURLException {
 		
 		String searchText = city+"+"+query.replace(' ', '+');
-		String params = "query=" + searchText
+		String params;
+		
+		if (this.pageNumber == 0) {
+			params = "query=" + searchText
 						+"&key=" + key;						
+		} else {
+			params = "query=" + searchText
+					+"&key=" + key
+					+"&nextpage=" + nextPageToken;	
+		}		
 		
 		this.url =  new URL("https://maps.googleapis.com/maps/api/place/textsearch/"
 						+outputFormat
