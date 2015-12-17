@@ -55,14 +55,23 @@ public class InitialBean implements Serializable {
 //	}
 	public void runUserQuery(ActionEvent event) {
 		System.out.println(userCity +" "+ userQuery);
-		GoogleMapsParser tmp = new GoogleMapsParser(userCity, userQuery);
-		tmp.startParsing();
-		this.listNotEmpty = true;
+		if(userCity!=null && userCity!="" && userQuery!="" && userQuery!=null){
+			GoogleMapsParser tmp = new GoogleMapsParser(userCity, userQuery);
+			tmp.startParsing();
+			this.listNotEmpty = true;
+//			if(tmp.getList().get(1).openingHours.getDay(1).fromHour!="" && tmp.getList().get(1).openingHours.getDay(1).fromHour!=null)
+
+			System.out.println(PlaceSorter.sort(tmp.getList(),hoursFrom,hoursTo).toString());
+		}
+		
+		System.out.println("Godziny: "+ hoursFrom + " " + hoursTo);
 		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
 	}
+	
 	public boolean isListNotEmpty() {
 		return listNotEmpty;
 	}
+	
 	public void setListNotEmpty(boolean listNotEmpty) {
 		this.listNotEmpty = listNotEmpty;
 	}

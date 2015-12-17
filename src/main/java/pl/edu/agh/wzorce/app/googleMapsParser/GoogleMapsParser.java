@@ -2,12 +2,14 @@ package pl.edu.agh.wzorce.app.googleMapsParser;
 
 import java.util.*;
 
+import pl.edu.agh.wzorce.app.place.Place;
+
 public class GoogleMapsParser {
 
 	private String city;
 	private String query;
 	/*TODO OGARNAC CZYSZCZENIE LISTY PRZY ZMIANIE DANYCH!!!!!!!!*/
-	private static ArrayList<Place> placeList;
+	private static ArrayList<Place> placeList = new ArrayList<Place>();
 	public static boolean flag = false;
 	
 	public GoogleMapsParser(String _city, String _query) {
@@ -31,10 +33,10 @@ public class GoogleMapsParser {
 					);
 			dir.build();
 			Place currentPlace = (Place)dir.getResult();
-			placeList = new ArrayList<Place>();
+
 			placeList.add(currentPlace);
-			System.out.println(currentPlace.toString()+"\n\n");
-			System.out.println("obecenie flaga = " + flag);
+//			System.out.println(currentPlace.toString()+"\n\n");
+//			System.out.println("obecenie flaga = " + flag);
 		}			
 	}
 	

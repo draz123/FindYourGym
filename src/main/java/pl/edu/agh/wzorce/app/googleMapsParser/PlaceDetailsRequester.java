@@ -7,6 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pl.edu.agh.wzorce.app.place.Day;
+import pl.edu.agh.wzorce.app.place.Place;
+import pl.edu.agh.wzorce.app.place.WeeklyHours;
+
 class PlaceDetailsRequester extends Builder {
 	
 	private String placeId = null;
