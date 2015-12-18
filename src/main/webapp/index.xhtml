@@ -8,83 +8,144 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<script src="http://maps.google.com/maps/api/js?sensor=true|false" type="text/javascript"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true|false"
+		type="text/javascript"></script>
 </h:head>
 <h:body>
 
+
 	<h:form>
-		<p:panel header="Message from bean">
-			<h:outputText value="#{initialBean.message}" />
-		</p:panel>
+		<div class="ui-grid">
+			<div class="ui-grid-row">
+				<div class="ui-grid-col-6">
+					<p:panel header="Cześć! Wpisz troche danych, poszukamy"
+						toggleable="true" style="min-height: 350px;">
+						<div class="ui-grid">
+							<div class="ui-grid-row">
+								<div class="ui-grid-col-6" style="width: 23%">
+									<div class="ui-grid-row">
+										<h:outputText id="msgGetCity" value="Wpisz miasto: " />
+									</div>
+									<div class="ui-grid-row">
+										<h:outputText id="msgFind" value="Wyszukaj:     " />
+									</div>
+									<div class="ui-grid-row">
+										<h:outputText id="msgHourFrom" value="Otwarte od:  " />
+									</div>
+								</div>
+								<div class="ui-grid-col-6">
+									<div class="ui-grid-row">
+										<h:inputText id="userCity" value="#{initialBean.userCity}" required="true"></h:inputText>
+									</div>
+									<div class="ui-grid-row">
+										<h:inputText id="query" value="#{initialBean.userQuery}"></h:inputText>
+									</div>
+									<div class="ui-grid-row">
+										<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"
+											size="5"></h:inputText>
+										<h:outputText value="  do  " />
+										<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"
+											size="5"></h:inputText>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 						<h:outputText id="checkIfTrue1" -->
+						<!-- 							value="flaga: #{initialBean.listNotEmpty}" /> -->
 
-		<p:panel header="Cześć! Słyszałem, że chcesz być koksę?">
-			<h:outputText id="msgGetCity" value="Wpisz miasto: " />
-			<h:inputText id="userCity" value="#{initialBean.userCity}"></h:inputText>
-			<br />
+						<h:commandButton value="ODPAL RAKIETE"
+							actionListener="#{initialBean.runUserQuery}">
+							<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
+						</h:commandButton>
+						<br />
+						<h:commandButton value="Pokaz dane uzytkownika">
+							<f:ajax type="Reset" execute="userCity hoursFrom hoursTo"
+								render="outputUserCity outputUserHourFrom outputUserHourTo" />
+						</h:commandButton>
+						<h2>
+							<h:outputText id="outputUserCity"
+								value="Wybrane miasto: #{initialBean.userCity}" />
+							<br />
+							<h:outputText id="outputUserHourFrom"
+								value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
+							<h:outputText id="outputUserHourTo"
+								value=" do #{initialBean.hoursTo}" />
+						</h2>
+					</p:panel>
+				</div>
 
-			<h:outputText id="msgFind" value="Wyszukaj: " />
-			<h:inputText id="query" value="#{initialBean.userQuery}"></h:inputText>
-			<br />
+				<div class="ui-grid-col-6">
+					<p:panel header="Reprezentacja wynikow" toggleable="true" style="min-height: 350px;">
+						<p:carousel numVisible="1" effect="easeInStrong" headerText="Tabs"
+							style="margin-bottom:0">
+							<p:tab title="Wynik">
+								<h:panelGrid columns="2" cellpadding="10">
+									<!-- 									<p:graphicImage name="resurces/images/hantel.jpg" /> -->
+									<h:outputText value="#{initialBean.str1}" />
+								</h:panelGrid>
+							</p:tab>
+							<p:tab title="Wynik">
+								<h:panelGrid columns="2" cellpadding="10">
+									<!-- 									<p:graphicImage name="resurces/images/hantel.jpg" /> -->
+									<h:outputText value="#{initialBean.str2}" />
+								</h:panelGrid>
+							</p:tab>
+							<p:tab title="Wynik">
+								<h:panelGrid columns="2" cellpadding="10">
+									<!-- 									<p:graphicImage name="demo/images/godfather/godfather3.jpg" /> -->
+									<h:outputText value="#{initialBean.str3}" />
+								</h:panelGrid>
+							</p:tab>
+							<p:tab title="Wynik">
+								<h:panelGrid columns="2" cellpadding="10">
+									<!-- 									<p:graphicImage name="demo/images/godfather/godfather3.jpg" /> -->
+									<h:outputText value="lorem ipsum" />
+								</h:panelGrid>
+							</p:tab>
+							<p:tab title="Wynik">
+								<h:panelGrid columns="2" cellpadding="10">
+									<!-- 									<p:graphicImage name="demo/images/godfather/godfather3.jpg" /> -->
+									<h:outputText value="lorem ipsum" />
+								</h:panelGrid>
+							</p:tab>
+						</p:carousel>
 
-			<h:outputText id="msgHourFrom" value="Godziny otwarcia od: " />
-			<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"></h:inputText>
-			<h:outputText value=" do " />
-			<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"></h:inputText>
-			<br />
-			
-	<h:outputText id="checkIfTrue1" value="flaga: #{initialBean.listNotEmpty}"  />
-	
-			<h:commandButton value="ODPAL RAKIETE"
-				actionListener="#{initialBean.runUserQuery}">
-				<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
-			</h:commandButton>
+					</p:panel>
+				</div>
+			</div>
+		</div>
 
-			<h:commandButton value="Pokaz dane uzytkownika">
-				<f:ajax type="Reset" execute="userCity hoursFrom hoursTo"
-					render="outputUserCity outputUserHourFrom outputUserHourTo" />
-			</h:commandButton>
-			<h2>
-				<h:outputText id="outputUserCity"
-					value="Wybrane miasto: #{initialBean.userCity}" />
-				<br />
-				<h:outputText id="outputUserHourFrom"
-					value="Godziny otwarcia: od #{initialBean.hoursFrom}" />
-				<h:outputText id="outputUserHourTo"
-					value=" do #{initialBean.hoursTo}" />
-			</h2>
-			<h2>
-				<h:outputText id="outputUserQueryResult"
-					value="wynik: #{initialBean.message}" />
-			</h2>
-		</p:panel>
-		
-		<p:panel header="Tu powinna pojawic sie mapa">
-			<p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:400px" />
+		<p:panel header="Mapa">
+			<p:gmap center="#{initialBean.cords}" zoom="15" type="HYBRID"
+				style="width:100%;height:400px" />
 		</p:panel>
 
 		<!--  PROBY WYSWIETLANIA -->
-			<h:outputText id="checkIfTrue2" value="flaga: #{initialBean.listNotEmpty}"  />
-	 		
-	 		<p:panel header="Proby wyswietlania" rendered="#{(initialBean.listNotEmpty == true)}">
-			<p:carousel value="#{carouselView.placesList}" headerText="Custom"
-				var="place" itemStyle="height:200px;text-align:center"
-				numVisible="1" easing="easeOutBounce" style="width:250px"
-				cricular="true">
-				<h:panelGrid columns="2" style="width:100%"	columnClasses="label,value">
-					
-					<f:facet name="header">
-						<p:graphicImage name="resurces/images/hantel.jpg" />
-					</f:facet>
+		<!-- 		<h:outputText id="checkIfTrue2" -->
+		<!-- 			value="flaga: #{initialBean.listNotEmpty}" /> -->
 
-					<h:outputText value="Id:" />
+		<!-- 		<p:panel header="Proby wyswietlania" -->
+		<!-- 			rendered="#{(initialBean.listNotEmpty == true)}"> -->
+		<!-- 			<p:carousel value="#{carouselView.placesList}" headerText="Custom" -->
+		<!-- 				var="place" itemStyle="height:200px;text-align:center" -->
+		<!-- 				numVisible="1" easing="easeOutBounce" style="width:250px" -->
+		<!-- 				cricular="true"> -->
+		<!-- 				<h:panelGrid columns="2" style="width:100%" -->
+		<!-- 					columnClasses="label,value"> -->
 
+		<!-- 					<f:facet name="header"> -->
+		<!-- 						<p:graphicImage name="resurces/images/hantel.jpg" /> -->
+		<!-- 					</f:facet> -->
 
-					<f:facet name="footer">
-						potato
-					</f:facet>
-				</h:panelGrid>
-			</p:carousel>
-		</p:panel>
+		<!-- 					<h:outputText value="Id:" /> -->
+		<!-- 					<h:outputText value="#{place.name}" /> -->
+
+		<!-- 					<f:facet name="footer"> -->
+		<!-- 						potato -->
+		<!-- 					</f:facet> -->
+		<!-- 				</h:panelGrid> -->
+		<!-- 			</p:carousel> -->
+		<!-- 		</p:panel> -->
 		<!-- KONIEC      PROBY WYSWIETLANIA -->
 	</h:form>
 

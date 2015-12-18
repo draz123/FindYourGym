@@ -2,6 +2,7 @@ package pl.edu.agh.wzorce.app.googleMapsParser;
 
 import java.util.*;
 
+import pl.edu.agh.wzorce.app.PlaceSorter;
 import pl.edu.agh.wzorce.app.place.Place;
 
 public class GoogleMapsParser {
@@ -11,18 +12,23 @@ public class GoogleMapsParser {
 	/*TODO OGARNAC CZYSZCZENIE LISTY PRZY ZMIANIE DANYCH!!!!!!!!*/
 	private static ArrayList<Place> placeList;
 	private static ArrayList<String> placeIdList;
+	
+	private int hoursFrom;
+	private int hoursTo;
 
 	public static boolean flag = false;
 	private int pageNumber;
-	private final int pageSize = 20;
+	private final int pageSize = 5;
 	private Director dir;
 	
-	public GoogleMapsParser(String _city, String _query) {
+	public GoogleMapsParser(String _city, String _query, int _hoursFrom, int _hoursTo) {
 		this.city = PolishLetterRemover.substitutePolishLettersWithNormal(_city);
 		this.query =PolishLetterRemover.substitutePolishLettersWithNormal(_query);
 		this.placeList = new ArrayList<Place>();
 		this.placeIdList = new ArrayList<String>();
 		this.pageNumber = 0;
+		this.hoursFrom = _hoursFrom;
+		this.hoursTo = _hoursTo;
 		dir = new Director();
 	}
 	
@@ -59,15 +65,15 @@ public class GoogleMapsParser {
 			/////////
 			
 			placeList.add(tmpPlace);
-			System.out.println(tmpPlace.toString()+"\n\n");
-			System.out.println("obecenie flaga = " + flag);
+//			System.out.println(tmpPlace.toString()+"\n\n");
+//			System.out.println("obecenie flaga = " + flag);
 		}	
 		
 		pageNumber++;
-
-		}			
-
-	
+				
+		this.placeList = PlaceSorter.sort(placeList, hoursFrom , hoursTo );
+	}
+		
 	public static ArrayList<Place> getList() {
 		return placeList;
 	}
