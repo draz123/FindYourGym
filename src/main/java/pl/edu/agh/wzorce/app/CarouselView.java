@@ -21,10 +21,10 @@ public class CarouselView implements Serializable {
 //    @ManagedProperty("org.primefaces.showcase.service.CarService@b2e8c0")
 //    private CarService service;
 //     
-    @PostConstruct
-    public void init() {
-        placesList = GoogleMapsParser.getList();
-    }
+//    @PostConstruct
+//    public void init() {
+//        placesList = GoogleMapsParser.getList();
+//    }
   
     public List<Place> getPlacesList() {
         return placesList;

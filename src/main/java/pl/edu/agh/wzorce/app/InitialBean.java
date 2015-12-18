@@ -26,8 +26,8 @@ public class InitialBean implements Serializable {
 	private String str1 = new String("");
 	private String str2 = new String("");
 	private String str3 = new String("");
-//	private String str4 = new String("");
-//	private String str5 = new String("");
+	private String str4 = new String("");
+	private String str5 = new String("");
 //	private String str6 = new String("");
 //	private String str7 = new String("");
 //	private String str8 = new String("");
@@ -105,14 +105,19 @@ public class InitialBean implements Serializable {
 		System.out.println(userCity + " " + userQuery);
 		GoogleMapsParser tmp = new GoogleMapsParser(userCity, userQuery, hoursFrom, hoursTo); //tutaj trzeba to przekaza jakos do instan
 		tmp.startParsing();
+		
 		this.listNotEmpty = true;
 		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
 		ntlist_wyrzuc_pozniej = tmp.getList();
 		System.out.println("ROZMIAR = " + ntlist_wyrzuc_pozniej.size());
-		this.str1 = ntlist_wyrzuc_pozniej.get(0).toString() + "\n";		//System.out.println("DUPA123: " + ntlist_wyrzuc_pozniej.get(0).toString());
-		this.str2 = ntlist_wyrzuc_pozniej.get(1).toString() + "\n";  	//System.out.println("DUPA1234: " + ntlist_wyrzuc_pozniej.get(1).toString());
-		this.str3 = ntlist_wyrzuc_pozniej.get(2).toString() + "\n";		//System.out.println("DUPA12345: " + ntlist_wyrzuc_pozniej.get(2).toString());
-//		this.str4 = ntlist_wyrzuc_pozniej.get(3).toString() + "\n";
+		if(ntlist_wyrzuc_pozniej.size() > 0)
+			this.str1 = ntlist_wyrzuc_pozniej.get(0).toString() + "\n";		//System.out.println("DUPA123: " + ntlist_wyrzuc_pozniej.get(0).toString());
+		if(ntlist_wyrzuc_pozniej.size() > 1)
+			this.str2 = ntlist_wyrzuc_pozniej.get(1).toString() + "\n";  	//System.out.println("DUPA1234: " + ntlist_wyrzuc_pozniej.get(1).toString());
+		if(ntlist_wyrzuc_pozniej.size() > 2)
+			this.str3 = ntlist_wyrzuc_pozniej.get(2).toString() + "\n";		//System.out.println("DUPA12345: " + ntlist_wyrzuc_pozniej.get(2).toString());
+		if(ntlist_wyrzuc_pozniej.size() > 3)
+			this.str4 = ntlist_wyrzuc_pozniej.get(3).toString() + "\n";
 //		this.str5 = ntlist_wyrzuc_pozniej.get(4).toString() + "\n";
 		this.cords = ntlist_wyrzuc_pozniej.get(0).latitude + ", " +  ntlist_wyrzuc_pozniej.get(0).longitude;
 		System.out.println("kooooordy = " + this.cords);
@@ -161,17 +166,17 @@ public class InitialBean implements Serializable {
 		this.str3 = str3;
 	}
 
-//	public String getStr4() {
-//		return str4;
-//	}
-//
-//	public void setStr4(String str4) {
-//		this.str4 = str4;
-//	}
-//
-//	public String getStr5() {
-//		return str5;
-//	}
+	public String getStr4() {
+		return str4;
+	}
+
+	public void setStr4(String str4) {
+		this.str4 = str4;
+	}
+
+	public String getStr5() {
+		return str5;
+	}
 //
 //	public void setStr5(String str5) {
 //		this.str5 = str5;
