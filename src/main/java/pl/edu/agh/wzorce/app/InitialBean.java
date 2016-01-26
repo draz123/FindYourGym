@@ -119,7 +119,7 @@ public class InitialBean implements Serializable {
 		if(ntlist_wyrzuc_pozniej.size() > 3)
 			this.str4 = ntlist_wyrzuc_pozniej.get(3).toString() + "\n";
 //		this.str5 = ntlist_wyrzuc_pozniej.get(4).toString() + "\n";
-		this.cords = ntlist_wyrzuc_pozniej.get(0).latitude + ", " +  ntlist_wyrzuc_pozniej.get(0).longitude;
+		//this.cords = ntlist_wyrzuc_pozniej.get(0).latitude + ", " +  ntlist_wyrzuc_pozniej.get(0).longitude;
 		System.out.println("kooooordy = " + this.cords);
 //		this.str6 = ntlist_wyrzuc_pozniej.get(5).toString() + "\n";
 //		this.str7 = ntlist_wyrzuc_pozniej.get(6).toString() + "\n";

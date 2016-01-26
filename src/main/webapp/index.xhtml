@@ -12,8 +12,6 @@
 		type="text/javascript"></script>
 </h:head>
 <h:body>
-
-
 	<h:form>
 		<div class="ui-grid">
 			<div class="ui-grid-row">
@@ -33,6 +31,7 @@
 										<h:outputText id="msgHourFrom" value="Otwarte od:  " />
 									</div>
 								</div>
+								
 								<div class="ui-grid-col-6">
 									<div class="ui-grid-row">
 										<h:inputText id="userCity" value="#{initialBean.userCity}" required="true"></h:inputText>
@@ -86,7 +85,6 @@
 							</p:tab>
 							<p:tab title="Wynik">
 								<h:panelGrid columns="2" cellpadding="10">
-									<!-- 									<p:graphicImage name="resurces/images/hantel.jpg" /> -->
 									<h:outputText value="#{initialBean.str2}" />
 								</h:panelGrid>
 							</p:tab>
