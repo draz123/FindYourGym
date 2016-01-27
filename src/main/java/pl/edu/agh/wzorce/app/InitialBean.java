@@ -113,8 +113,8 @@ public class InitialBean implements Serializable {
 		this.setCords(ntlist_wyrzuc_pozniej.get(0).getCoordinates());
 		System.out.println("ROZMIAR = " + ntlist_wyrzuc_pozniej.size());
 		if(ntlist_wyrzuc_pozniej.size() > 0)
-			this.str1 = ntlist_wyrzuc_pozniej.get(0).toString() + "\n";		//System.out.println("DUPA123: " + ntlist_wyrzuc_pozniej.get(0).toString());
-		if(ntlist_wyrzuc_pozniej.size() > 1)
+			this.str1 = ntlist_wyrzuc_pozniej.get(0).toString() + "\n";		//System.out.println("DUPA123: " + ntlist_wyrzuc_pozniej.get(0).toString()asd);
+		if(ntlist_wyrzuc_pozniej.size() > 1) 
 			this.str2 = ntlist_wyrzuc_pozniej.get(1).toString() + "\n";  	//System.out.println("DUPA1234: " + ntlist_wyrzuc_pozniej.get(1).toString());
 		if(ntlist_wyrzuc_pozniej.size() > 2)
 			this.str3 = ntlist_wyrzuc_pozniej.get(2).toString() + "\n";		//System.out.println("DUPA12345: " + ntlist_wyrzuc_pozniej.get(2).toString());
