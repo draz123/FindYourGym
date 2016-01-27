@@ -1,0 +1,102 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+.ui-widget-header{
+	background: none;
+}
+.header{
+	margin-bottom: 160px;
+	border-bottom: 4px solid #415553;
+	box-shadow: 0px 0px 15px #444;
+}
+.header .ui-widget-content{
+	background: #fff;
+	border: 0;
+}
+.header .ui-panel{
+		width: 100%;
+}
+.headerInput{
+	border-radius: 12px;
+	background: #415553;
+	color: #fff;
+	padding: 12px;
+	margin: 4px 0;
+	width: 100%;
+}
+.logoImage img{
+	width: 500px;
+	height: auto;
+}
+.inline-box{
+	display: inline-block;
+	padding: 30px 6px 0;
+}
+input[type="submit"]{
+	background: #e62117;
+	color: #fff;
+	border: 0;
+	border-radius: 12px;
+	padding: 12px 20px;
+	cursor: pointer;
+	transition: background 0.35s ease-in-out;
+	float: right;
+}
+input[type="submit"]:hover{
+	background: #C00111;
+}
+.container .ui-widget-content{
+	background: none;
+	border: 0;
+}
+.main-box{
+	box-sizing: border-box;
+	padding: 8px 32px;
+	border: 2px solid #415553;
+	min-height: 450px;
+	box-shadow: 0px 0px 16px #ddd;
+	position: relative;
+}
+.ui-carousel{
+	position: static;	
+}
+.main-box-inner{
+
+}
+
+.ui-carousel .ui-carousel-button {
+	margin: -150px 0 0 0;	
+}
+.ui-carousel-button{
+	position: absolute;
+	height: 300px;
+    top: 50%;
+    width: 55px;
+}
+.ui-carousel .ui-carousel-header{
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.ui-carousel .ui-carousel-dropdown{
+	display: none;
+}
+.ui-carousel-next-button{
+    right: -56px; 
+    background: url("../arrow_right.png") no-repeat center / contain #415553 !important;
+}
+.ui-carousel-prev-button{
+	left: -56px;
+	background: url("../arrow_left.png") no-repeat center / contain #415553 !important;
+}
