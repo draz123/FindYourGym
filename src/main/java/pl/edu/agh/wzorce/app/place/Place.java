@@ -1,11 +1,13 @@
 package pl.edu.agh.wzorce.app.place;
 
+import java.io.Serializable;
 
-
-
-
-public class Place {
+public class Place implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4989659586970989521L;
 	public String name;
 	public String address;
 	public String phoneNumber;
@@ -21,9 +23,13 @@ public class Place {
 		this.phoneNumber = _phoneNumber;
 		this.openingHours = _openingHours;
 		this.rating = _rating;
-		this.website = _website;	
-		this.longitude = _longitude;
+		this.website = _website;
 		this.latitude = _latitude;
+		this.longitude = _longitude;
+	}
+	
+	public String getCoordinates() {
+		return this.latitude + ", " + this.longitude;
 	}
 	
 	public String toString() {

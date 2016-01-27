@@ -39,7 +39,7 @@ public class InitialBean implements Serializable {
 //	private String str14 = new String("");
 //	private String str15 = new String("");
 //	private String str16 = new String("");
-	private String cords = new String("");
+	private String cords = "36.171650, -115.146431";
 	
 
 	public String getCords() {
@@ -109,6 +109,8 @@ public class InitialBean implements Serializable {
 		this.listNotEmpty = true;
 		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
 		ntlist_wyrzuc_pozniej = tmp.getList();
+		
+		this.setCords(ntlist_wyrzuc_pozniej.get(0).getCoordinates());
 		System.out.println("ROZMIAR = " + ntlist_wyrzuc_pozniej.size());
 		if(ntlist_wyrzuc_pozniej.size() > 0)
 			this.str1 = ntlist_wyrzuc_pozniej.get(0).toString() + "\n";		//System.out.println("DUPA123: " + ntlist_wyrzuc_pozniej.get(0).toString());

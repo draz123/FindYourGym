@@ -23,7 +23,7 @@ public class GoogleMapsParser {
 	
 	public GoogleMapsParser(String _city, String _query, int _hoursFrom, int _hoursTo) {
 		this.city = PolishLetterRemover.substitutePolishLettersWithNormal(_city);
-		this.query =PolishLetterRemover.substitutePolishLettersWithNormal(_query);
+		this.query = PolishLetterRemover.substitutePolishLettersWithNormal(_query);
 		this.placeList = new ArrayList<Place>();
 		this.placeIdList = new ArrayList<String>();
 		this.pageNumber = 0;
@@ -64,7 +64,10 @@ public class GoogleMapsParser {
 			tmpPlace = (Place)dir.getResult();
 			/////////
 			
+		 System.out.println("lati= " + tmpPlace.latitude + "\n longi= "+tmpPlace.longitude);	
+			
 			placeList.add(tmpPlace);
+			
 //			System.out.println(tmpPlace.toString()+"\n\n");
 //			System.out.println("obecenie flaga = " + flag);
 		}	
