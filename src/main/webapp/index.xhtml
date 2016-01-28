@@ -16,53 +16,54 @@
 	<h:form>
 		<div class="ui-grid">
 			<div class="ui-grid-row header">
-					<p:panel toggleable="true">
-						<div class="ui-grid-col-12">
-							<div class="ui-grid-col-6 left logoImage">
-								<p:graphicImage name="../logo.jpg" />
-							</div>
-							<div class="ui-grid-col-6 right">
-								<div class="right">
-									<div class="inline-box ui-grid-col-8">
-										<div class="ui-grid-row">
-											<h:inputText id="userCity" value="#{initialBean.userCity}" required="true" class="headerInput"></h:inputText>
-											<p:watermark for="userCity" value="Wpisz miasto!" />
-										</div>
-										<div class="ui-grid-row">
-											<h:inputText id="query" value="#{initialBean.userQuery}" class="headerInput"></h:inputText>
-											<p:watermark for="query" value="Jaki obiekt?" />
-										</div>
+				<p:panel toggleable="true">
+					<div class="ui-grid-col-12">
+						<div class="ui-grid-col-6 left logoImage">
+							<p:graphicImage name="../logo.jpg" />
+						</div>
+						<div class="ui-grid-col-6 right">
+							<div class="right">
+								<div class="inline-box ui-grid-col-8">
+									<div class="ui-grid-row">
+										<h:inputText id="userCity" value="#{initialBean.userCity}"
+											required="true" class="headerInput"></h:inputText>
+										<p:watermark for="userCity" value="Wpisz miasto!" />
 									</div>
-									<div class="inline-box ui-grid-col-4">
-										<div class="ui-grid-row">
-											<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"
-												size="5" class="headerInput" placeholder="Otwarte od"></h:inputText>
-<!-- 											<p:watermark for="hoursFrom" value="Otwarte od" /> -->
-										</div>
-										<div class="ui-grid-row">											
-											<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"
-												size="5" class="headerInput"></h:inputText>
-											<p:watermark for="hoursTo" value="do godziny" />
-										</div>
+									<div class="ui-grid-row">
+										<h:inputText id="query" value="#{initialBean.userQuery}"
+											class="headerInput"></h:inputText>
+										<p:watermark for="query" value="Jaki obiekt?" />
 									</div>
-									<div class="ui-grid-col-12">
-										<h:commandButton value="ODPAL RAKIETE"
-											actionListener="#{initialBean.runUserQuery}">
+								</div>
+								<div class="inline-box ui-grid-col-4">
+									<div class="ui-grid-row">
+										<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"
+											size="5" class="headerInput" placeholder="Otwarte od"></h:inputText>
+									</div>
+									<div class="ui-grid-row">
+										<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"
+											size="5" class="headerInput"></h:inputText>
+										<p:watermark for="hoursTo" value="do godziny" />
+									</div>
+								</div>
+								<div class="ui-grid-col-12">
+									<h:commandButton value="ODPAL RAKIETE"
+										actionListener="#{initialBean.runUserQuery}">
 										<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/> -->
-										</h:commandButton>
-									</div>
+									</h:commandButton>
 								</div>
 							</div>
 						</div>
-						<!-- <h:commandButton value="Pokaz dane uzytkownika">
+					</div>
+					<!-- <h:commandButton value="Pokaz dane uzytkownika">
 							<f:ajax type="Reset" execute="userCity hoursFrom hoursTo"
 								render="outputUserCity outputUserHourFrom outputUserHourTo" />
 						</h:commandButton> -->
-						<!-- 						<h:outputText id="checkIfTrue1" -->
-						<!-- 							value="flaga: #{initialBean.listNotEmpty}" /> -->
+					<!-- 						<h:outputText id="checkIfTrue1" -->
+					<!-- 							value="flaga: #{initialBean.listNotEmpty}" /> -->
 
 
-						<!-- <h2>
+					<!-- <h2>
 							<h:outputText id="outputUserCity"
 								value="Wybrane miasto: #{initialBean.userCity}" />
 							<br />
@@ -71,50 +72,29 @@
 							<h:outputText id="outputUserHourTo"
 								value=" do #{initialBean.hoursTo}" />
 						</h2> -->
-					</p:panel>
+				</p:panel>
 			</div>
 		</div>
-		
+
 		<div class="ui-grid-row container">
 			<div class="main-box">
 				<div class="main-box-inner">
 					<div class="ui-grid-col-6">
 						<p:panel>
-							<p:gmap center="#{initialBean.cords}" zoom="10" type="terrain"
+							<p:gmap center="#{initialBean.cords}" zoom="20" type="terrain"
 								style="width:100%;height:400px" />
 						</p:panel>
 					</div>
-					
+
 					<div class="ui-grid-col-6">
-						<p:carousel numVisible="1" effect="easeInStrong"
-							style="margin-bottom:0">
-							
-							<p:tab title="Wynik">
-								<h:panelGrid columns="2" cellpadding="13">
-									<h:outputText value="#{initialBean.str1}" />
-								</h:panelGrid>
-							</p:tab>
-							
-							<p:tab title="Wynik">
-								<h:panelGrid columns="2" cellpadding="10">
-									<h:outputText value="#{initialBean.str2}" />
-								</h:panelGrid>
-							</p:tab>
-							<p:tab title="Wynik">
-								<h:panelGrid columns="2" cellpadding="10">
-									<h:outputText value="#{initialBean.str3}" />
-								</h:panelGrid>
-							</p:tab>
-							<p:tab title="Wynik">
-								<h:panelGrid columns="2" cellpadding="10">
-									<h:outputText value="#{initialBean.str4}"/>
-								</h:panelGrid>
-							</p:tab>
-							<p:tab title="Wynik">
-								<h:panelGrid columns="2" cellpadding="10">
-									<h:outputText value="#{initialBean.str5}" />
-								</h:panelGrid>
-							</p:tab>
+						<p:carousel value="#{initialBean.dmPlaceList}" var="b"
+							numVisible="1" effect="easeInStrong" style="margin-bottom:0">
+							<h:column>
+								<p:commandLink actionListener="#{initialBean.doSetSelectedPlace}">
+									<h:outputText value="current cords: #{b.coordinates}" />>
+									<h:outputText value="Model: #{b.description}" />
+								</p:commandLink>
+							</h:column>
 						</p:carousel>
 					</div>
 				</div>

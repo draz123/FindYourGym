@@ -18,7 +18,7 @@ public class GoogleMapsParser {
 
 	public static boolean flag = false;
 	private int pageNumber;
-	private final int pageSize = 5;
+	private final int pageSize = 3;
 	private Director dir;
 	
 	public GoogleMapsParser(String _city, String _query, int _hoursFrom, int _hoursTo) {
@@ -64,7 +64,7 @@ public class GoogleMapsParser {
 			tmpPlace = (Place)dir.getResult();
 			/////////
 			
-		 System.out.println("lati= " + tmpPlace.latitude + "\n longi= "+tmpPlace.longitude);	
+		 //System.out.println("lati= " + tmpPlace.latitude + "\n longi= "+tmpPlace.longitude);	
 			
 			placeList.add(tmpPlace);
 			

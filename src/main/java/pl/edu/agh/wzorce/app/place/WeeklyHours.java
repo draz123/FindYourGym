@@ -1,7 +1,12 @@
 package pl.edu.agh.wzorce.app.place;
 
-public class WeeklyHours {
+import java.io.Serializable;
 
+public class WeeklyHours implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1925656957938928978L;
 	Day[] week = new Day[7]; 
 	
 	public Day getDay(int i){

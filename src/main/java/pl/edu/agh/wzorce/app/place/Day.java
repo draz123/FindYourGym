@@ -1,6 +1,8 @@
 package pl.edu.agh.wzorce.app.place;
 
-public class Day {
+import java.io.Serializable;
+
+public class Day implements Serializable {
 	
 	public String nameOfDay;
 	public String fromHour;
