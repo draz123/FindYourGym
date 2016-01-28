@@ -75,7 +75,8 @@
 							<h:column>
 								<p:outputPanel><b><h:outputText value="Nazwa:" /> </b><h:outputText value=" #{b.name}" /> </p:outputPanel> 
 								<p:outputPanel><b><h:outputText value="Adres:" /></b><h:outputText value=" #{b.address}" /></p:outputPanel> 
-								<p:outputPanel><b><h:outputText value="Otwarte:" /></b><h:outputText value=" #{b.hours}" /></p:outputPanel> 
+								<p:outputPanel><b><h:outputText value="Otwarte:" /></b><h:outputText value=" #{b.hours}" /></p:outputPanel>
+								<p:outputPanel><b><h:outputText value="Website:" /></b> <h:outputLink value="#{b.website}"> strona obiektu</h:outputLink></p:outputPanel>  
 								<p:outputPanel><b><h:outputText value="Rating:" /></b><h:outputText value=" #{b.rating}" /></p:outputPanel> 
 								<h:commandButton id="przycisk" class="mapRefresh" value="Pokaż na mapie">
 									<f:setPropertyActionListener target="#{initialBean.action}" value="#{b.coordinates}" />

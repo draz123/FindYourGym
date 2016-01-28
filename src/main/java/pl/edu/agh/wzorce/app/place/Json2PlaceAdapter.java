@@ -50,6 +50,10 @@ public class Json2PlaceAdapter implements Place, Serializable {
     	return rating;
     }
     
+    public String getWebsite() {
+    	return website;
+    }
+    
     
     public WeeklyHours getOpeningHours() {
         return openingHours;

@@ -10,6 +10,8 @@ public interface Place {
     
     public String getRating();
     
+    public String getWebsite();
+    
     public String getCoordinates();
     
     public String getDescription();
