@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PolishLetterRemover {
-    /*
-     * 
-     * 
+    /* 
      *       UZYWAMY TYLKO METODY: substitutePolishLettersWithNormal(String input)
      * 		 main mozna odkomentowac do testow;
      *   	 pozdro
@@ -14,15 +12,15 @@ public class PolishLetterRemover {
     static Map<Character, Character> polishLettersMap;
     static {
         polishLettersMap = new HashMap<Character, Character>();
-        polishLettersMap.put('¹', 'a');
-        polishLettersMap.put('ê', 'a');
-        polishLettersMap.put('ó', 'o');
-        polishLettersMap.put('œ', 's');
-        polishLettersMap.put('³', 'l');
-        polishLettersMap.put('¿', 'z');
-        polishLettersMap.put('Ÿ', 'z');
-        polishLettersMap.put('æ', 'c');
-        polishLettersMap.put('ñ', 'n');
+        polishLettersMap.put('ï¿½', 'a');
+        polishLettersMap.put('ï¿½', 'a');
+        polishLettersMap.put('ï¿½', 'o');
+        polishLettersMap.put('ï¿½', 's');
+        polishLettersMap.put('ï¿½', 'l');
+        polishLettersMap.put('ï¿½', 'z');
+        polishLettersMap.put('ï¿½', 'z');
+        polishLettersMap.put('ï¿½', 'c');
+        polishLettersMap.put('ï¿½', 'n');
         
     }
     
@@ -44,7 +42,7 @@ public class PolishLetterRemover {
     
     /*
     public static void main(String[] args) {
-        String testSentence = "W Kêdzie¿ynie-koŸle nast¹pi³o wy³¹czenie œwiat³a";
+        String testSentence = "W Kï¿½dzieï¿½ynie-koï¿½le nastï¿½piï¿½o wyï¿½ï¿½czenie ï¿½wiatï¿½a";
         testSentence = testSentence.toLowerCase();
         for (char c: testSentence.toCharArray()) {
             System.out.println(""+c+"\t"+isNormalLetter(c));

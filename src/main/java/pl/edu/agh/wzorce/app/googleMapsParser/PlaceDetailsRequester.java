@@ -16,10 +16,8 @@ class PlaceDetailsRequester extends Builder {
 	private String placeId = null;
 	private Place place = null;
 	
-	public PlaceDetailsRequester(String _city, String _query, String _placeId) {
-
+	public PlaceDetailsRequester(String _placeId) {
 		this.placeId = _placeId;
-
 	}
 	
 	public Place getPlaceDetails() {
@@ -58,6 +56,7 @@ class PlaceDetailsRequester extends Builder {
 	}
 
 	private Day[] getWeeklyHours(JSONObject result) {
+		
 		Day[] week = new Day[7];
 		JSONArray periods;
 		try {
@@ -79,8 +78,7 @@ class PlaceDetailsRequester extends Builder {
 				
 				week[i] = new Day();
 			}
-		}
-		
+		}	
 		return week;
 	}
 
