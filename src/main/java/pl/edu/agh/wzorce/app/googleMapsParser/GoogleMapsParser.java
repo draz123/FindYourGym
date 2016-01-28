@@ -7,8 +7,10 @@ import pl.edu.agh.wzorce.app.place.Place;
 
 /////// DESIGN PATTERN - SINGLETON
 public final class GoogleMapsParser {
-
-	private final static GoogleMapsParser theOnlyInstance = new GoogleMapsParser();
+	
+	private static class SingletonHolder {
+		private static final GoogleMapsParser theOnlyInstance = new GoogleMapsParser();
+	}
 	
 	private String city;
 	private String query;
@@ -35,7 +37,7 @@ public final class GoogleMapsParser {
 	}
 	
 	public static GoogleMapsParser getInstance() {
-		return theOnlyInstance;
+		return SingletonHolder.theOnlyInstance;
 	}
 	
 	public void setParameters(String _city, String _query, int _hoursFrom, int _hoursTo) {
