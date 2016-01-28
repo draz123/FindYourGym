@@ -23,15 +23,22 @@ public class InitialBean implements Serializable {
 	private Strategy strategy;
 	private String userCity;
 	private String userQuery;
+	private String cords = "36.171650, -115.146431";
+	//public String action;
 	private int hoursFrom;
 	private int hoursTo;
 	private boolean listNotEmpty = false;
 	private List<Place> ntlist_wyrzuc_pozniej;
 	private List<Place> placeList;
-	
 	private transient DataModel dmPlaceList;
 	private Place selectedPlace;
-	private String cords = "36.171650, -115.146431";
+
+
+	public void setAction(String action) {
+		System.out.println("dziala#################" + action);
+		this.cords = new String(action);
+		//System.err.println("initialBean.cords = "+this.getCords());
+	}
 	
 	public DataModel getDmPlaceList() {
 		return dmPlaceList;
@@ -41,17 +48,17 @@ public class InitialBean implements Serializable {
 		this.dmPlaceList = dmPlaceList;
 	}
 	
-	public Place getSelectedPlace() {
-		return selectedPlace;
-	}
-
-	public void doSetSelectedPlace() {
-		this.selectedPlace = (Place)dmPlaceList.getRowData();
-		System.out.println("Najpierw kordynaty = " + this.getCords());
-		String a = this.selectedPlace.getCoordinates();
-		System.out.println("Nowe kordy = " + a);
-		this.setCords(this.selectedPlace.getCoordinates());
-	}
+//	public Place getSelectedPlace() {
+//		return selectedPlace;
+//	}
+//
+//	public void doSetSelectedPlace() {
+//		this.selectedPlace = (Place)dmPlaceList.getRowData();
+//		System.out.println("Najpierw kordynaty = " + this.getCords());
+//		String a = this.selectedPlace.getCoordinates();
+//		System.out.println("Nowe kordy = " + a);
+//		this.setCords(this.selectedPlace.getCoordinates());
+//	}
 
 	public List<Place> getPlaceList() {
 		return placeList;

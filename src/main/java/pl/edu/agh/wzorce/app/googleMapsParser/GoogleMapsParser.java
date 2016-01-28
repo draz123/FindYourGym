@@ -55,7 +55,8 @@ public final class GoogleMapsParser {
 			placeList.clear();
 		}
 		obtain20Results();
-			
+		//obtain20Results();
+				
 	}
 	
 	private void obtain20Results() {	
@@ -82,7 +83,9 @@ public final class GoogleMapsParser {
 		
 		pageNumber++;
 		
+		System.out.println("Przed sortem liczba miejsc: " + placeList.size());
 		placeList = PlaceSorter.sort(placeList, hoursFrom , hoursTo );
+		System.out.println("Po sorcie liczba miejsc: " + placeList.size());
 		
 	}
 		
