@@ -11,7 +11,7 @@ public class PlaceSorter {
 		System.out.println(input.size());
 		System.out.println("From: "+from+"To:"+to);		
 		for(Place p:input){
-			if(!p.openingHours.getDay(0).fromHour.isEmpty() && !p.openingHours.getDay(0).toHour.isEmpty()){				
+			if(!p.getOpeningHours().getDay(0).fromHour.isEmpty() && !p.getOpeningHours().getDay(0).toHour.isEmpty()){				
 				if(results.isEmpty()){
 					results.add(p);
 				}
@@ -39,19 +39,19 @@ public class PlaceSorter {
 	}
 		
 	private static int absFrom(Place p,int from){
-		if (from-(Integer.parseInt(p.openingHours.getDay(0).fromHour)/100)<0){
-			return Math.abs(from-Integer.parseInt(p.openingHours.getDay(0).fromHour)/100);
+		if (from-(Integer.parseInt(p.getOpeningHours().getDay(0).fromHour)/100)<0){
+			return Math.abs(from-Integer.parseInt(p.getOpeningHours().getDay(0).fromHour)/100);
 		}
 		else
-			return Math.abs(from-(Integer.parseInt(p.openingHours.getDay(0).fromHour)/100));
+			return Math.abs(from-(Integer.parseInt(p.getOpeningHours().getDay(0).fromHour)/100));
 	}
 	
 	private static int absTo(Place p,int to){
-		if (to-(Integer.parseInt(p.openingHours.getDay(0).toHour)/100)<0){
-			return Math.abs(to-Integer.parseInt(p.openingHours.getDay(0).toHour)/100);
+		if (to-(Integer.parseInt(p.getOpeningHours().getDay(0).toHour)/100)<0){
+			return Math.abs(to-Integer.parseInt(p.getOpeningHours().getDay(0).toHour)/100);
 		}
 		else
-			return Math.abs(to-(Integer.parseInt(p.openingHours.getDay(0).toHour)/100));
+			return Math.abs(to-(Integer.parseInt(p.getOpeningHours().getDay(0).toHour)/100));
 	}	
 
 }

@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.edu.agh.wzorce.app.place.Day;
+import pl.edu.agh.wzorce.app.place.Json2PlaceAdapter;
 import pl.edu.agh.wzorce.app.place.Place;
 import pl.edu.agh.wzorce.app.place.WeeklyHours;
 
@@ -25,62 +26,12 @@ class PlaceDetailsRequester extends Builder {
 		return place;				
 	}
 	
-	public void buildJSONProcesser() throws JSONException {
-		
-		JSONObject result = jsonResponse.getJSONObject("result");
-		Day[] week = getWeeklyHours(result);
-		JSONObject locationResult = result.getJSONObject("geometry").getJSONObject("location");
-				
-		this.place = new Place(
-					getPlaceProperty("name", result),
-					getPlaceProperty("formatted_address", result),
-					getPlaceProperty("formatted_phone_number", result),
-					new WeeklyHours(week),
-					getPlaceProperty("rating", result),
-					getPlaceProperty("website", result),
-					getPlaceProperty("lng", locationResult),
-					getPlaceProperty("lat", locationResult)
-				);		
-	}
-
-	private String getPlaceProperty(String propertyName, JSONObject json) {
-		
-		String result;
-		try {
-			result = json.get(propertyName).toString();
-		} catch (JSONException jE) {
-			result = "";
-		}
-		
-		return result;
-	}
-
-	private Day[] getWeeklyHours(JSONObject result) {
-		
-		Day[] week = new Day[7];
-		JSONArray periods;
-		try {
-			periods = result.getJSONObject("opening_hours").getJSONArray("periods");
-		} catch (JSONException e) {
-			for (int i=0; i<7; i++) {
-				week[i] = new Day();
-			}
-			return week;
-		}
-		
-		for (int i=0; i<7; i++) {
-			try {
-				week[i] = new Day(
-						(String)periods.getJSONObject(i).getJSONObject("open").get("time"),
-						(String)periods.getJSONObject(i).getJSONObject("close").get("time")
-						);
-			} catch (JSONException e) {
-				
-				week[i] = new Day();
-			}
-		}	
-		return week;
-	}
+    public void buildJSONProcesser() throws JSONException {
+        
+        JSONObject result = jsonResponse.getJSONObject("result");
+        
+        this.place = new Json2PlaceAdapter(result);
+    }
 
 	public void buildURL() throws MalformedURLException {
 		
