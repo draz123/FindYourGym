@@ -29,7 +29,7 @@ public class Director {
 		return null;
 	}
 
-	public void build() {
+	public void buildResult() {
 					
 		try {
 			builder.buildURL();
@@ -40,9 +40,7 @@ public class Director {
 		builder.sendQuery();
 		
 		try {
-			
-			builder.buildJSONProcesser();
-			
+			builder.buildJSONProcesser();			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}	

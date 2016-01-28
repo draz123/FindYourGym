@@ -111,12 +111,14 @@ public class InitialBean implements Serializable {
 	// }
 	public void runUserQuery(ActionEvent event) {
 		System.out.println(userCity + " " + userQuery);
-		GoogleMapsParser tmp = new GoogleMapsParser(userCity, userQuery, hoursFrom, hoursTo); //tutaj trzeba to przekaza jakos do instan
-		tmp.startParsing();
+		
+		GoogleMapsParser parser = GoogleMapsParser.getInstance(); 
+		parser.setParameters(userCity, userQuery, hoursFrom, hoursTo);
+		parser.startParsing();
 		
 		this.listNotEmpty = true;
 		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
-		ntlist_wyrzuc_pozniej = tmp.getList();
+		ntlist_wyrzuc_pozniej = parser.getList();
 		
 		this.setPlaceList(ntlist_wyrzuc_pozniej);
 		this.setDmPlaceList(new ListDataModel(this.getPlaceList()));
