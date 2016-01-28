@@ -5,7 +5,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-
+import pl.edu.agh.wzorce.app.strategy.EasterEggStrategy;
+import pl.edu.agh.wzorce.app.strategy.SearchEngineStrategy;
+import pl.edu.agh.wzorce.app.strategy.Strategy;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,7 +19,8 @@ import pl.edu.agh.wzorce.app.place.Place;
 public class InitialBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	private Strategy strategy;
 	private String userCity;
 	private String userQuery;
 	private int hoursFrom;
@@ -106,12 +109,23 @@ public class InitialBean implements Serializable {
 		this.ntlist_wyrzuc_pozniej = ntlist_wyrzuc_pozniej;
 	}
 
-	// public String result() {
-	// return "gowno";
-	// }
+	public void setStrategy(Strategy strategy){
+		this.strategy=strategy;
+	}
+	
 	public void runUserQuery(ActionEvent event) {
 		System.out.println(userCity + " " + userQuery);
+		if(userQuery.equals("wdwp")){
+			setStrategy(new EasterEggStrategy());
+		}
+		else{
+			setStrategy(new SearchEngineStrategy(userCity, userQuery, hoursFrom, hoursTo));
+		}
+
+		System.out.println(userCity + " " + userQuery);
 		
+
+		strategy.task();
 		GoogleMapsParser parser = GoogleMapsParser.getInstance(); 
 		parser.setParameters(userCity, userQuery, hoursFrom, hoursTo);
 		parser.startParsing();
