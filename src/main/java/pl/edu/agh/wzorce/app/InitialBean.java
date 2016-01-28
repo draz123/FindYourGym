@@ -33,6 +33,14 @@ public class InitialBean implements Serializable {
 	private Place selectedPlace;
 	private String cords = "36.171650, -115.146431";
 	
+	public String action;
+
+	public void setAction(String action) {
+		System.out.println("dziala#################" + action);
+		this.cords = new String(action);
+		System.err.println("initialBean.cords = "+this.getCords());
+	}
+	
 	public DataModel getDmPlaceList() {
 		return dmPlaceList;
 	}
