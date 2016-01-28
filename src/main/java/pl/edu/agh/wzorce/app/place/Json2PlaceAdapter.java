@@ -38,6 +38,19 @@ public class Json2PlaceAdapter implements Place, Serializable {
         return name;
     }
     
+    public String getAddress() {
+        return address;
+    }
+    
+    public String getHours() {
+    	return openingHours.toString();
+    }
+    
+    public String getRating() {
+    	return rating;
+    }
+    
+    
     public WeeklyHours getOpeningHours() {
         return openingHours;
     }

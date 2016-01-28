@@ -27,9 +27,12 @@ public class Day implements Serializable {
 	}
 	
 	public String toString() {
-		return "\t" + 
-				nameOfDay + ": " 
-				+ fromHour + "-" 
-				+ toHour +"\n";			
+//		return "\t" + 
+//				nameOfDay + ": " 
+//				+ fromHour + "-" 
+//				+ toHour +"\n";			
+		return "\t"
+		+ fromHour + "-" 
+		+ toHour +"\n";		
 	}			
 }

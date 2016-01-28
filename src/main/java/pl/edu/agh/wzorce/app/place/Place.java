@@ -4,6 +4,12 @@ public interface Place {
     
     public String getName();
     
+    public String getAddress();
+    
+    public String getHours();
+    
+    public String getRating();
+    
     public String getCoordinates();
     
     public String getDescription();

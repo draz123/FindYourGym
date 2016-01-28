@@ -13,8 +13,10 @@ import org.json.JSONObject;
 abstract class Builder {
 
 	protected String outputFormat = "json";
-	//protected final String key = "AIzaSyD1GpXkz6W-GOVC6xUtLdX13OIoMy5_KtU"; AIzaSyDA4Hnvwl4uL6ci6qm7Z0LeyVGPjTA0AC0
-	protected final String key = "AIzaSyDA4Hnvwl4uL6ci6qm7Z0LeyVGPjTA0AC0";
+	//protected final String key = "AIzaSyD1GpXkz6W-GOVC6xUtLdX13OIoMy5_KtU"; AIzaSyDA4Hnvwl4uL6ci6qm7Z0LeyVGPjTA0AC0 //klucz Rafal
+	//protected final String key = "AIzaSyDA4Hnvwl4uL6ci6qm7Z0LeyVGPjTA0AC0"; //klucz Przemek
+	//AIzaSyATY6nPRLMdiHYbOjIukBO9by6lS_NXg0g  //klucz Nikodem
+	protected final String key = "AIzaSyATY6nPRLMdiHYbOjIukBO9by6lS_NXg0g";
 	protected URL url =null;
 	protected JSONObject jsonResponse = null;
 	

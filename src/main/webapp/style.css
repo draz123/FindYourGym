@@ -41,24 +41,15 @@ body{
 }
 .inline-box{
 	display: inline-block;
-	padding: 30px 6px 0;
-}
-input[type="submit"]{
-	background: #e62117;
-	color: #fff;
-	border: 0;
-	border-radius: 12px;
-	padding: 12px 20px;
-	cursor: pointer;
-	transition: background 0.35s ease-in-out;
-	float: right;
-}
-input[type="submit"]:hover{
-	background: #C00111;
+	padding: 55px 6px 0;
 }
 .container .ui-widget-content{
 	background: none;
 	border: 0;
+}
+.container .ui-carousel-item{
+	min-height: 410px;
+	position: relative;
 }
 .main-box{
 	box-sizing: border-box;
@@ -71,10 +62,6 @@ input[type="submit"]:hover{
 .ui-carousel{
 	position: static;	
 }
-.main-box-inner{
-
-}
-
 .ui-carousel .ui-carousel-button {
 	margin: -150px 0 0 0;	
 }
@@ -99,4 +86,33 @@ input[type="submit"]:hover{
 .ui-carousel-prev-button{
 	left: -56px;
 	background: url("../arrow_left.png") no-repeat center / contain #415553 !important;
+}
+input[type="submit"].mapRefresh{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: #39926B;
+	padding: 12px 38px;
+	border-radius: 8px;
+}
+input[type="submit"].mapRefresh:hover{
+	background: #415553;
+}
+input[type="submit"]{
+	background: #e62117;
+	color: #fff;
+	border: 0;
+	border-radius: 12px;
+	padding: 12px 20px;
+	cursor: pointer;
+	transition: background 0.35s ease-in-out;
+	float: right;
+}
+input[type="submit"]:hover{
+	background: #C00111;
+}
+.ui-outputpanel{
+	margin-bottom: 12px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #c0c0c0;
 }

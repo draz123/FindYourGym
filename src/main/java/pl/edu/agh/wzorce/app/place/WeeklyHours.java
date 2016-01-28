@@ -26,7 +26,7 @@ public class WeeklyHours implements Serializable {
 	public String toString() {
 		
 		StringBuilder result = new StringBuilder();
-		for (int i=0; i<7; i++)
+		for (int i=0; i<1; i++)
 			result.append(	week[i].toString()	);
 				
 		return result.toString(); 
