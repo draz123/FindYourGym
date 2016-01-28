@@ -36,8 +36,8 @@
 									<div class="inline-box ui-grid-col-4">
 										<div class="ui-grid-row">
 											<h:inputText id="hoursFrom" value="#{initialBean.hoursFrom}"
-												size="5" class="headerInput"></h:inputText>
-											<p:watermark for="hoursFrom" value="Otwarte od" />
+												size="5" class="headerInput" placeholder="Otwarte od"></h:inputText>
+<!-- 											<p:watermark for="hoursFrom" value="Otwarte od" /> -->
 										</div>
 										<div class="ui-grid-row">											
 											<h:inputText id="hoursTo" value="#{initialBean.hoursTo}"
@@ -84,14 +84,17 @@
 								style="width:100%;height:400px" />
 						</p:panel>
 					</div>
+					
 					<div class="ui-grid-col-6">
 						<p:carousel numVisible="1" effect="easeInStrong"
 							style="margin-bottom:0">
+							
 							<p:tab title="Wynik">
 								<h:panelGrid columns="2" cellpadding="13">
 									<h:outputText value="#{initialBean.str1}" />
 								</h:panelGrid>
 							</p:tab>
+							
 							<p:tab title="Wynik">
 								<h:panelGrid columns="2" cellpadding="10">
 									<h:outputText value="#{initialBean.str2}" />
