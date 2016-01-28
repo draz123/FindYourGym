@@ -2,6 +2,8 @@ package pl.edu.agh.wzorce.app.place;
 
 import java.io.Serializable;
 
+import pl.edu.agh.wzorce.app.InitialBean;
+
 public class Place implements Serializable {
 	
 	/**
@@ -16,6 +18,7 @@ public class Place implements Serializable {
 	public String website;
 	public String longitude;
 	public String latitude;
+	private String description;
 	
 	public Place(String _name, String _address, String _phoneNumber, WeeklyHours _openingHours, String _rating, String _website, String _longitude, String _latitude) {
 		this.name = _name;
@@ -26,10 +29,15 @@ public class Place implements Serializable {
 		this.website = _website;
 		this.latitude = _latitude;
 		this.longitude = _longitude;
+		this.description = this.toString();
 	}
 	
 	public String getCoordinates() {
 		return this.latitude + ", " + this.longitude;
+	}
+	
+	public String getDescription() {
+		return this.description;
 	}
 	
 	public String toString() {
