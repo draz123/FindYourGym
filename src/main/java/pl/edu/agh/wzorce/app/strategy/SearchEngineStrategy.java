@@ -14,6 +14,7 @@ public class SearchEngineStrategy implements Strategy{
 		this.hoursFrom=hoursFrom;
 		this.hoursTo=hoursTo;
 	}
+	
 	GoogleMapsParser parser;
 	@Override
 	public void task() {

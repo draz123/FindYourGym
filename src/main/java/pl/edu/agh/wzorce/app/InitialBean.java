@@ -33,14 +33,6 @@ public class InitialBean implements Serializable {
 	private Place selectedPlace;
 	private String cords = "36.171650, -115.146431";
 	
-	public String action;
-
-	public void setAction(String action) {
-		System.out.println("dziala#################" + action);
-		this.cords = new String(action);
-		System.err.println("initialBean.cords = "+this.getCords());
-	}
-	
 	public DataModel getDmPlaceList() {
 		return dmPlaceList;
 	}
@@ -128,19 +120,13 @@ public class InitialBean implements Serializable {
 		}
 		else{
 			setStrategy(new SearchEngineStrategy(userCity, userQuery, hoursFrom, hoursTo));
-		}
-
-		System.out.println(userCity + " " + userQuery);
-		
+		}		
 
 		strategy.task();
-		GoogleMapsParser parser = GoogleMapsParser.getInstance(); 
-		parser.setParameters(userCity, userQuery, hoursFrom, hoursTo);
-		parser.startParsing();
 		
 		this.listNotEmpty = true;
 		System.out.println("obecnie interesujaca nas flaga = " + this.listNotEmpty);
-		ntlist_wyrzuc_pozniej = parser.getList();
+		ntlist_wyrzuc_pozniej = ((GoogleMapsParser) strategy.getResults()).getList();
 		
 		this.setPlaceList(ntlist_wyrzuc_pozniej);
 		this.setDmPlaceList(new ListDataModel(this.getPlaceList()));

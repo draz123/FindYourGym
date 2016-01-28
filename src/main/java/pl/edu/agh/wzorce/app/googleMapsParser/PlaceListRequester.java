@@ -28,7 +28,12 @@ class PlaceListRequester extends Builder {
 	public void buildJSONProcesser() throws JSONException {
 		
 		JSONArray jsonResults = jsonResponse.getJSONArray("results");
-		nextPageToken = (String)jsonResponse.get("next_page_token");
+		try {
+			nextPageToken = (String)jsonResponse.get("next_page_token");
+		} catch (JSONException jE) {
+			nextPageToken = null;
+			System.out.println("Misato ma mniej niż 20 wyników. Brak kolejnej strony.");
+		}
 		
 		for (int i=0; i<jsonResults.length(); i++) {
 			String singleResult = (String)jsonResults.getJSONObject(i).get("place_id");

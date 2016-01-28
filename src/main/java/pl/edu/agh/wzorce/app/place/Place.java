@@ -11,6 +11,10 @@ public class Place implements Serializable {
 	 */
 	private static final long serialVersionUID = -4989659586970989521L;
 	public String name;
+	public String getName() {
+		return name;
+	}
+	
 	public String address;
 	public String phoneNumber;
 	public WeeklyHours openingHours;
