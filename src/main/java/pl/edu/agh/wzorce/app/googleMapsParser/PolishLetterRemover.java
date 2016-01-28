@@ -11,16 +11,15 @@ public class PolishLetterRemover {
      */
     static Map<Character, Character> polishLettersMap;
     static {
-        polishLettersMap = new HashMap<Character, Character>();
-        polishLettersMap.put('�', 'a');
-        polishLettersMap.put('�', 'a');
-        polishLettersMap.put('�', 'o');
-        polishLettersMap.put('�', 's');
-        polishLettersMap.put('�', 'l');
-        polishLettersMap.put('�', 'z');
-        polishLettersMap.put('�', 'z');
-        polishLettersMap.put('�', 'c');
-        polishLettersMap.put('�', 'n');
+//        polishLettersMap = new HashMap<Character, Character>();
+//        polishLettersMap.put('�', 'a');
+//        polishLettersMap.put('�', 'o');
+//        polishLettersMap.put('�', 's');
+//        polishLettersMap.put('�', 'l');
+//        polishLettersMap.put('�', 'z');
+//        polishLettersMap.put('�', 'z');
+//        polishLettersMap.put('�', 'c');
+//        polishLettersMap.put('�', 'n');
         
     }
     
