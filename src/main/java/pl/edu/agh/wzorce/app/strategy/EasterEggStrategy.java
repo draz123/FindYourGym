@@ -11,7 +11,7 @@ public class EasterEggStrategy implements Strategy {
 	public void task() {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		try {
-			externalContext.redirect("https://www.youtube.com/watch?v=ruhFmBrl4GM&feature=youtu.be");
+			externalContext.redirect("https://www.youtube.com/watch?feature=player_detailpage&v=ruhFmBrl4GM#t=11");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
