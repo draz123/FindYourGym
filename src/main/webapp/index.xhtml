@@ -27,12 +27,12 @@
 									<div class="ui-grid-row">
 										<h:inputText id="userCity" value="#{initialBean.userCity}"
 											required="true" class="headerInput"></h:inputText>
-										<p:watermark for="userCity" value="Wpisz miasto!" />
+										<p:watermark for="userCity" value="Enter city:" />
 									</div>
 									<div class="ui-grid-row">
 										<h:inputText id="query" value="#{initialBean.userQuery}"
 											class="headerInput"></h:inputText>
-										<p:watermark for="query" value="Jaki obiekt?" />
+										<p:watermark for="query" value="Type of object" />
 									</div>
 								</div>
 								<div class="inline-box ui-grid-col-4">
@@ -48,7 +48,7 @@
 								</div>
 								<div class="ui-grid-col-12">
 									<h:commandButton value="ODPAL RAKIETE"
-										actionListener="#{initialBean.runUserQuery}">
+										actionListener="#{initialBean.runUserQuery}" style="display: none;">
 										<!-- 				<f:ajax execute="query" render="outputUserQueryResult"/>  style="display: none;"-->
 									</h:commandButton>
 								</div>
