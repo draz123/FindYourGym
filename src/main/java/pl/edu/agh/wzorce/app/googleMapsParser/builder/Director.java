@@ -1,8 +1,11 @@
-package pl.edu.agh.wzorce.app.googleMapsParser;
+package pl.edu.agh.wzorce.app.googleMapsParser.builder;
 
 import java.net.MalformedURLException;
 
 import org.json.JSONException;
+
+import pl.edu.agh.wzorce.app.googleMapsParser.PlaceDetailsRequester;
+import pl.edu.agh.wzorce.app.googleMapsParser.PlaceListRequester;
 
 public class Director {
 	

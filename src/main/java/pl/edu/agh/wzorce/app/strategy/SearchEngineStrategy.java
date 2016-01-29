@@ -1,6 +1,6 @@
 package pl.edu.agh.wzorce.app.strategy;
 
-import pl.edu.agh.wzorce.app.googleMapsParser.GoogleMapsParser;
+import pl.edu.agh.wzorce.app.googleMapsParser.singleton.GoogleMapsParser;
 
 public class SearchEngineStrategy implements Strategy{
 	private String userCity;

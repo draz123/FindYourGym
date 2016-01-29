@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-class PlaceListRequester extends Builder {
+import pl.edu.agh.wzorce.app.googleMapsParser.builder.Builder;
+
+public class PlaceListRequester extends Builder {
 	
 	protected String city = null;
 	protected String query = null;

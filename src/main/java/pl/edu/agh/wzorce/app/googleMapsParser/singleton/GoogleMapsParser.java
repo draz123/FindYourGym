@@ -1,9 +1,14 @@
-package pl.edu.agh.wzorce.app.googleMapsParser;
+package pl.edu.agh.wzorce.app.googleMapsParser.singleton;
 
 import java.util.*;
 
 import pl.edu.agh.wzorce.app.PlaceSorter;
-import pl.edu.agh.wzorce.app.place.Place;
+import pl.edu.agh.wzorce.app.googleMapsParser.PlaceDetailsRequester;
+import pl.edu.agh.wzorce.app.googleMapsParser.PlaceListRequester;
+import pl.edu.agh.wzorce.app.googleMapsParser.PolishLetterRemover;
+import pl.edu.agh.wzorce.app.googleMapsParser.builder.Builder;
+import pl.edu.agh.wzorce.app.googleMapsParser.builder.Director;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Place;
 
 /////// DESIGN PATTERN - SINGLETON
 public final class GoogleMapsParser {
@@ -54,9 +59,7 @@ public final class GoogleMapsParser {
 			placeIdList.clear();
 			placeList.clear();
 		}
-		obtain20Results();
-		//obtain20Results();
-				
+		obtain20Results();				
 	}
 	
 	private void obtain20Results() {	

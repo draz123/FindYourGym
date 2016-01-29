@@ -12,7 +12,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import pl.edu.agh.wzorce.app.googleMapsParser.*;
-import pl.edu.agh.wzorce.app.place.Place;
+import pl.edu.agh.wzorce.app.googleMapsParser.singleton.GoogleMapsParser;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Place;
 
 @ManagedBean
 @SessionScoped

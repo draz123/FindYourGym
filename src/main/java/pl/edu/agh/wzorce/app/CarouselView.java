@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import pl.edu.agh.wzorce.app.googleMapsParser.*;
-import pl.edu.agh.wzorce.app.place.Place;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Place;
  
 @ManagedBean
 @ViewScoped

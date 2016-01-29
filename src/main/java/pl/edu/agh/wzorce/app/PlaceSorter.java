@@ -2,7 +2,7 @@ package pl.edu.agh.wzorce.app;
 
 import java.util.ArrayList;
 
-import pl.edu.agh.wzorce.app.place.Place;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Place;
 
 public class PlaceSorter {
 		

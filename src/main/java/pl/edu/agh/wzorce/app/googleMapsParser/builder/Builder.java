@@ -1,4 +1,4 @@
-package pl.edu.agh.wzorce.app.googleMapsParser;
+package pl.edu.agh.wzorce.app.googleMapsParser.builder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-abstract class Builder {
+public abstract class Builder {
 
 	protected String outputFormat = "json";
 	//protected final String key = "AIzaSyD1GpXkz6W-GOVC6xUtLdX13OIoMy5_KtU"; AIzaSyDA4Hnvwl4uL6ci6qm7Z0LeyVGPjTA0AC0 //klucz Rafal

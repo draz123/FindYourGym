@@ -7,12 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import pl.edu.agh.wzorce.app.place.Day;
-import pl.edu.agh.wzorce.app.place.Json2PlaceAdapter;
-import pl.edu.agh.wzorce.app.place.Place;
-import pl.edu.agh.wzorce.app.place.WeeklyHours;
+import pl.edu.agh.wzorce.app.googleMapsParser.builder.Builder;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Day;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Json2PlaceAdapter;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.Place;
+import pl.edu.agh.wzorce.app.googleMapsParser.place.WeeklyHours;
 
-class PlaceDetailsRequester extends Builder {
+public class PlaceDetailsRequester extends Builder {
 	
 	private String placeId = null;
 	private Place place = null;
